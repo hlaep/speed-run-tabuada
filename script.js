@@ -2,8 +2,8 @@ const answerInput = document.getElementById('answer')
 const questionElement = document.querySelector('.card')
 const getMultiplicationTable = () => {
   const multiplicationTable = []
-  for (let i = 0; i <= 10; i++) {
-    for (let j = 0; j <= 10; j++) {
+  for (let i = 2; i <= 9; i++) {
+    for (let j = 2; j <= 9; j++) {
       const question = `${i} x ${j}?`
       const answer = i * j
       multiplicationTable.push({ question, answer, index: i })

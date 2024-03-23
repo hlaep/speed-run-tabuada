@@ -11,6 +11,34 @@ body {
   color: #cacaca;
 }
 
+img {
+  height: 2rem;
+}
+
+button {
+  height: 2rem;
+  width: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  border-radius: 50%;
+  outline: none;
+  background-color: transparent;
+  padding: 25px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #ffffff21;
+}
+
+.setting-btn {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+}
+
 .wrapper {
   background: rgb(41, 41, 41);
   height: 100vh;
@@ -21,8 +49,6 @@ body {
   align-items: center;
   gap: 2rem;
 }
-
-
 
 input {
   background: none;
