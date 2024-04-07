@@ -1,5 +1,6 @@
 const answerInput = document.getElementById('answer')
 const questionElement = document.querySelector('.card')
+
 const getMultiplicationTable = () => {
   const multiplicationTable = []
   for (let i = 2; i <= 9; i++) {
@@ -11,12 +12,15 @@ const getMultiplicationTable = () => {
   }
   return multiplicationTable
 }
+
 const questions = getMultiplicationTable()
 let currentQuestion = null
+
 const getRandomQuestion = () => {
   currentQuestion = questions[Math.floor(Math.random() * questions.length)]
   questionElement.innerText = currentQuestion.question
 }
+
 getRandomQuestion()
 questionElement.innerText = currentQuestion.question
 

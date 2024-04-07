@@ -33,10 +33,26 @@ button:hover {
   background-color: #ffffff21;
 }
 
-.setting-btn {
+.settings-btn {
   position: absolute;
   top: 0.5rem;
   right: 0.5rem;
+}
+
+.settings-menu.hidden {
+  right: -300px;
+}
+
+.settings-menu.shown {
+  right: 0;
+}
+
+.settings-menu {
+  position: absolute;
+  background-color: red;
+  width: 300px;
+  height: 100%;
+  transition: right 0.3s;
 }
 
 .wrapper {
