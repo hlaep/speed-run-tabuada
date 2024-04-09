@@ -1,20 +1,54 @@
 const answerInput = document.getElementById('answer')
 const questionElement = document.querySelector('.card')
 
-const getMultiplicationTable = () => {
-  const multiplicationTable = []
-  for (let i = 2; i <= 9; i++) {
-    for (let j = 2; j <= 9; j++) {
-      const question = `${i} x ${j}?`
-      const answer = i * j
-      multiplicationTable.push({ question, answer, index: i })
-    }
-  }
-  return multiplicationTable
+const USER_SETTINGS = {
+  addition: true,
+  subtraction: true,
+  multiplication: true,
+  division: true
 }
 
-const questions = getMultiplicationTable()
-let currentQuestion = null
+const getTableOfOperation = operation => {
+  const operationTable = []
+  for (let i = 2; i <= 9; i++) {
+    for (let j = 2; j <= 9; j++) {
+      let answer
+      switch (operation) {
+        case '+':
+          answer = i + j
+          break
+        case '-':
+          answer = i - j
+          break
+        case '×':
+          answer = i * j
+          break
+        case '÷':
+          answer = i / j
+          break
+        default:
+          throw new Error('Invalid operation')
+      }
+      const question = `${i} ${operation} ${j}?`
+      operationTable.push({ question, answer, index: i })
+    }
+  }
+  return operationTable
+}
+const getTables = () => {
+  let tables = []
+  if (USER_SETTINGS.addition) tables = [...tables, ...getTableOfOperation('+')]
+  if (USER_SETTINGS.subtraction)
+    tables = [...tables, ...getTableOfOperation('-')]
+  if (USER_SETTINGS.multiplication)
+    tables = [...tables, ...getTableOfOperation('×')]
+  if (USER_SETTINGS.division) tables = [...tables, ...getTableOfOperation('÷')]
+  return tables
+}
+
+const questions = getTables()
+
+let currentQuestion
 
 const getRandomQuestion = () => {
   currentQuestion = questions[Math.floor(Math.random() * questions.length)]
